@@ -14,7 +14,7 @@
   <div id="root"></div>
   <!--Página de inicio-->
   <section id="start">
-   <!--h2 con class hide escrito por requerimiento para validar en w3-->
+    <!--h2 con class hide escrito por requerimiento para validar en w3-->
     <h2 class="hide">HEADING</h2>
     <img class="logo1" src="imagenes/logo_lol2.png" alt="">
     <article>
@@ -22,8 +22,11 @@
         <br>League of Legends champions
       </h2>
     </article>
-    <!-- <input id="user-name" type="text" placeholder="Username">
-    <input id="user-password" type="text" placeholder="Password"> -->
+
+    <section class="player-id">
+      Name: <input id="user-name" type="text" placeholder="Username or email">
+      Password: <input id="user-password" type="password" placeholder="Password">
+    </section>
 
     <button class="start" id="start-button">Log In</button>
   </section>
@@ -50,16 +53,16 @@
     </div>
 
     <div class="hide" id="modal-fun">
-          <!-- Contenido del modal de fun facts-->
-          <div class="modal-box">
-            <span class="close" id="close-modal-fun">x</span>
-            <h1>Did you know?</h1>
-            <div class="background-fun">
-            </div>
-            <p id="average-fun">The averge difficulty of the champions is <span id="average"></span> </p>
-
-          </div>
+      <!-- Contenido del modal de fun facts-->
+      <div class="modal-box">
+        <span class="close" id="close-modal-fun">x</span>
+        <h1>Did you know?</h1>
+        <div class="background-fun">
         </div>
+        <p id="average-fun">The averge difficulty of the champions is <span id="average"></span> </p>
+
+      </div>
+    </div>
 
     <div id="separator"></div>
 
