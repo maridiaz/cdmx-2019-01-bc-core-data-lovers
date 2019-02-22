@@ -21,38 +21,36 @@ const closeFunFacts = document.getElementById('close-fun');
 //Botón que cierra TODOS los modales
 const closeModal = document.getElementById('close-modal-fun')
 
-// //función para imprimir información en los modales
-// const printModal = (champ) => {
-//   document.getElementById('printModal').innerHTML = `<h1>${champ.name}</h1>
-//   <p class="champion-title">${champ.title}</p>
-//   <div class="background-modal" style="background-image:url(${champ.splash})">
-//   <h2>${champ.tags[0]}</h2>
-//   <h2>${champ.tags[1]} </h2>
-//   <p class="champion-stats">Attack: ${champ.info.attack}</p>
-//   <p class="champion-stats">Defense: ${champ.info.defense}</p>
-//   <p class="champion-stats">Magic: ${champ.info.magic}</p>
-//   <p class="champion-stats">Difficulty: ${champ.info.difficulty}</p>
-//   <p class="champion-stats">HP: ${champ.stats.hp}</p>
-//   <p class="champion-stats">MP: ${champ.stats.mp}</p>
-//   <p class="champion-stats">Armor: ${champ.stats.armor}</p>
-//   <p class="champion-stats">Crit: ${champ.stats.crit}</p>
-//   <p class="champion-stats">Attack Damage: ${champ.stats.attackdamage}</p>
-//   <p class="champion-stats">Move Speed: ${champ.stats.movespeed}</p>
-//   </div>`;
-//   }
-
-// //Input para buscar por nombre
-// let search = document.getElementById('search');
-
-// //Variable para extraer la data
+// Variable para extraer la data
 let lolData = [];
+
+// //función para imprimir información en los modales
+const printModal = (champ) => {
+  document.getElementById('printModal').innerHTML = `<h1>${champ.name}</h1>
+  <p class="champion-title">${champ.title}</p>
+  <div class="background-modal" style="background-image:url(${champ.splash})">
+  <h2>${champ.primaryRol}</h2>
+  <h2>${champ.secondaryRol} </h2>
+  <p class="champion-stats">Attack: ${champ.attack}</p>
+  <p class="champion-stats">Defense: ${champ.defense}</p>
+  <p class="champion-stats">Magic: ${champ.magic}</p>
+  <p class="champion-stats">Difficulty: ${champ.difficulty}</p>
+  <p class="champion-stats">HP: ${champ.hp}</p>
+  <p class="champion-stats">MP: ${champ.mp}</p>
+  <p class="champion-stats">Armor: ${champ.armor}</p>
+  <p class="champion-stats">Crit: ${champ.crit}</p>
+  <p class="champion-stats">Attack Damage: ${champ.attackdamage}</p>
+  <p class="champion-stats">Move Speed: ${champ.movespeed}</p>
+  </div>`;
+  }
+
+// Input para buscar por nombre
+let search = document.getElementById('search');
 
 //Evento del boton Comenzar
 startButton.addEventListener('click', () => {
   start.classList.add('hide');
   championList.classList.remove('hide');
-  // const newArrayChamp = window.lol.showData(lolData);
-  // printData(newArrayChamp);
 });
 
 // //Esta variable forma parte de la función de imprimir
@@ -66,53 +64,53 @@ const printData = (newArrayInfo) => {
     <h3> ${champ.name} </h3> <div class="tags"> <p> ${champ.primaryRol} </p> <p> ${champ.secondaryRol} </p> </div></div>`;
     cardSummary.insertAdjacentHTML("beforeend", result);
   })
-//el for asigna evento click a las "tarjetas" de personajes enlistadas para que al dar click
-//se abra el modal, obtiene del id del campeón
+  //el for asigna evento click a las "tarjetas" de personajes enlistadas para que al dar click
+  //se abra el modal, obtiene del id del campeón
   for (let i = 0; i < champion.length; i++) {
     champion[i].addEventListener("click", () => {
-      let champElegido = champion[i].id;
-      const champ = window.lol.toModal(lolData, champElegido);
+      let champSelected = champion[i].id;
+      const champ = window.lol.toModal(lolData, champSelected);
       printModal(champ);
       modalChamp.classList.remove('hide');
     })
   }
 }
 
-// //Función para el boton que cierra los modales de los campeones
-// closeFunFacts.addEventListener('click', () => {
-//   modalChamp.classList.add('hide');
-// });
+//Función para el boton que cierra los modales de los campeones
+closeFunFacts.addEventListener('click', () => {
+  modalChamp.classList.add('hide');
+});
 
-// //Función para el boton que cierra el modal de average
-// closeModal.addEventListener('click', () => {
-//   modalFun.classList.add('hide');
-// });
+//Función para el boton que cierra el modal de average
+closeModal.addEventListener('click', () => {
+  modalFun.classList.add('hide');
+});
 
-// //Cierra el modal dando click fuera del modal de cada personaje
-// window.addEventListener('click', () => {
-//   if (event.target == modalChamp) {
-//     modalChamp.classList.add('hide');
-//   }
-// });
+//Cierra el modal dando click fuera del modal de cada personaje
+window.addEventListener('click', () => {
+  if (event.target == modalChamp) {
+    modalChamp.classList.add('hide');
+  }
+});
 
-// //Cierra el modal dando click fuera del modal de difficulty
-// window.addEventListener('click', () => {
-//   if (event.target == modalFun) {
-//     modalFun.classList.add('hide');
-//   }
-// });
+//Cierra el modal dando click fuera del modal de difficulty
+window.addEventListener('click', () => {
+  if (event.target == modalFun) {
+    modalFun.classList.add('hide');
+  }
+});
 
 // //Funcion para agregar el evento key up al input para filtrar por nombre
-// search.addEventListener('keyup', () => {
-//   let name2 = search.value;
-//   const newArrayChamp = window.lol.showData(lolData);
-//   let filtered = window.lol.filterByName(newArrayChamp, name2);
-//   if (name2 == "") {
-//     printData(newArrayChamp);
-//   } else {
-//     printData(filtered);
-//   }
-// });
+search.addEventListener('keyup', () => {
+  let name2 = search.value;
+  //const newArrayChamp = window.lol.showData(lolData);
+  let filtered = window.lol.filterByName(lolData, name2);
+  if (name2 == "") {
+    printData(lolData);
+  } else {
+    printData(filtered);
+  }
+});
 
 // //Esta función es para seleccionar el rol por el cual se va a filtrar
 const selectRol = () => {
@@ -128,57 +126,57 @@ const selectRol = () => {
 // selectRol();
 
 // //Funciones con las que se ordena de manera Descendente
-// attackDesc.addEventListener('click', () => {
-//   const newArrayChamp = window.lol.showData(lolData);
-//   const attackSortDesc = window.lol.sorterByAttackDesc(newArrayChamp);
-//   printData(attackSortDesc);
-// });
+attackDesc.addEventListener('click', () => {
+  //const newArrayChamp = window.lol.showData(lolData);
+  const attackSortDesc = window.lol.sorterByAttackDesc(lolData);
+  printData(attackSortDesc);
+});
 
 // //Funciones con las que se ordena de manera Ascendente
-// attackUpw.addEventListener('click', () => {
-//   const newArrayChamp = window.lol.showData(lolData);
-//   const attackSortUpw = window.lol.sorterByAttackUpw(newArrayChamp);
-//   printData(attackSortUpw);
-// });
+attackUpw.addEventListener('click', () => {
+  //const newArrayChamp = window.lol.showData(lolData);
+  const attackSortUpw = window.lol.sorterByAttackUpw(lolData);
+  printData(attackSortUpw);
+});
 
-// magic.addEventListener('click', () => {
-//   const newArrayChamp = window.lol.showData(lolData);
-//   const magicSort = window.lol.sorterByMagic(newArrayChamp);
-//   printData(magicSort);
-// });
+magic.addEventListener('click', () => {
+  //const newArrayChamp = window.lol.showData(lolData);
+  const magicSort = window.lol.sorterByMagic(lolData);
+  printData(magicSort);
+});
 
-// defense.addEventListener('click', () => {
-//   const newArrayChamp = window.lol.showData(lolData);
-//   const defenseSort = window.lol.sorterByDefense(newArrayChamp);
-//   printData(defenseSort);
-// });
+defense.addEventListener('click', () => {
+  //const newArrayChamp = window.lol.showData(lolData);
+  const defenseSort = window.lol.sorterByDefense(lolData);
+  printData(defenseSort);
+});
 
-// back.addEventListener('click', () => {
-//   championList.classList.add('hide');
-//   start.classList.remove('hide');
-// });
+back.addEventListener('click', () => {
+  championList.classList.add('hide');
+  start.classList.remove('hide');
+});
 
-// //Función para llamar a la función de reduce
+//Función para llamar a la función de reduce
 
-// funFacts.addEventListener('click', ()=> {
-//   const newArrayChamp = window.lol.showData(lolData);
-//   const reduce = window.lol.toReduce(newArrayChamp);
-//   modalFun.classList.remove('hide');
-//   let average = reduce / newArrayChamp.length;
-//   document.getElementById('average').innerHTML = average;
-// })
+funFacts.addEventListener('click', ()=> {
+  //const newArrayChamp = window.lol.showData(lolData);
+  const reduce = window.lol.toReduce(lolData);
+  modalFun.classList.remove('hide');
+  let average = reduce / lolData.length;
+  document.getElementById('average').innerHTML = average;
+})
 
-
+//Aquí inicia el fetch y la experimentación
 const url = './data/lol/lol.json'
 
 fetch(url)
-.then(resp => resp.json())
-.then(json => json.data)
-.then(data => { 
-  lolData =  window.lol.showData(data)
-  return lolData
-})
-.then(toPrint => printData(toPrint))
-.then(printByRol => selectRol(printByRol))
+  .then(resp => resp.json())
+  .then(json => json.data)
+  .then(data => {
+    lolData = window.lol.showData(data)
+    return lolData
+  })
+  .then(toPrint => printData(toPrint))
+  .then(printByRol => selectRol(printByRol))
 
-.catch(err => console.error(err))
+  .catch(err => console.error(err))
