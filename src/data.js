@@ -10,13 +10,20 @@ window.lol = {
         champsInfo = {
           splash: element.splash,
           name: element.name,
+          title: element.title,
           primaryRol: element.tags[0],
           secondaryRol: element.tags[1],
           attack: element.info.attack,
           defense: element.info.defense,
           magic: element.info.magic,
           id: element.id,
-          difficulty: element.info.difficulty
+          difficulty: element.info.difficulty,
+          hp: element.stats.hp,
+          mp: element.stats.mp,
+          armor: element.stats.armor,
+          crit: element.stats.crit,
+          attackdamage: element.stats.attackdamage,
+          movespeed: element.stats.movespeed
         }
         if (!element.tags[1]) {
           champsInfo.secondaryRol = "";
