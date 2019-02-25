@@ -10,8 +10,8 @@ const modalFun = document.getElementById('modal-fun');
 
 //Declarando las variables que enlazan los botones del HTML mediante el DOM
 const startButton = document.getElementById('start-button');
-const filterEnlisted = document.getElementById('filter-enlisted');
-const sortEnlisted = document.getElementById('sort-enlisted');
+// const filterEnlisted = document.getElementById('filter-enlisted');
+// const sortEnlisted = document.getElementById('sort-enlisted');
 const attackDesc = document.getElementById('attack-desc');
 const attackUpw = document.getElementById('attack-upw');
 const magic = document.getElementById('magic');
@@ -63,7 +63,7 @@ const champion = document.getElementsByClassName('champion');
 const printData = (newArrayInfo) => {
   cardSummary.innerHTML = " ";
   newArrayInfo.forEach(champ => {
-    let result = `<div id='${champ.name}' class="champion"> <img src="${champ.splash}">
+    let result = `<div id='${champ.name}' class="champion"> <img src="${champ.splash.replace("http", "https")}">
     <h3> ${champ.name} </h3> <div class="tags"> <p> ${champ.primaryRol} </p> <p> ${champ.secondaryRol} </p> </div></div>`;
     cardSummary.insertAdjacentHTML("beforeend", result);
   })
