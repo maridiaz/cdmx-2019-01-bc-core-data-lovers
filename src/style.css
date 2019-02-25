@@ -40,8 +40,8 @@ body {
     background-position: right;
     background-repeat: no-repeat;
     border-width: 3px;
-    width: 20%;
-    height: 30px;
+    width: 25%;
+    height: 35px;
     margin: 0 auto;
     border-radius: 50px;
     border-style: solid;
@@ -61,8 +61,8 @@ body {
     background-position: right;
     background-repeat: no-repeat;
     border-width: 3px;
-    width: 20%;
-    height: 30px;
+    width: 25%;
+    height: 35px;
     margin: 0 auto;
     border-radius: 50px;
     border-style: solid;
@@ -100,7 +100,7 @@ body {
     border-color: #efc056;
     border-width: 5px;
     color: #efc056;
-    padding: 40px 80px;
+    padding: 20px 80px;
     text-align: center;
     text-decoration: none;
     display: block;
