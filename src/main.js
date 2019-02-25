@@ -179,4 +179,4 @@ fetch(url)
   .then(toPrint => printData(toPrint))
   .then(printByRol => selectRol(printByRol))
 
-  .catch(err => console.error(err))
+  //.catch(err => console.error(err))

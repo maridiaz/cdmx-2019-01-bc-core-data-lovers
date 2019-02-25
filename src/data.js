@@ -1,7 +1,7 @@
 window.lol = {
   //Funcion que recorre un objeto que contiene 7 indicadores y se convierte en un arreglo
   showData: (lolData) => {
-    console.log(lolData)
+    //console.log(lolData)
     let newArrayInfo = [];
     let champsInfo = {};
     for (const key in lolData) {
@@ -108,7 +108,7 @@ window.lol = {
       if (data.hasOwnProperty(key)) {
         const element = data[key];
         if (element.id === champSelect) {
-          champ = element;
+          //champ = element;
           return element;
         }
       }
