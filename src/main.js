@@ -15,6 +15,7 @@ const attackUpw = document.getElementById('attack-upw');
 const magic = document.getElementById('magic');
 const defense = document.getElementById('defense');
 const back = document.getElementById('back');
+
 //Boton para el modal de average difficulty
 const funFacts = document.getElementById('fun-facts');
 const closeFunFacts = document.getElementById('close-fun');
@@ -24,7 +25,7 @@ const closeModal = document.getElementById('close-modal-fun')
 // Variable para extraer la data
 let lolData = [];
 
-// //función para imprimir información en los modales
+//función para imprimir información en los modales
 const printModal = (champ) => {
   document.getElementById('printModal').innerHTML = `<h1>${champ.name}</h1>
   <p class="champion-title">${champ.title}</p>
@@ -112,7 +113,7 @@ search.addEventListener('keyup', () => {
   }
 });
 
-// //Esta función es para seleccionar el rol por el cual se va a filtrar
+//Esta función es para seleccionar el rol por el cual se va a filtrar
 const selectRol = () => {
   for (let i = 0; i < rol.length; i++) {
     rol[i].addEventListener("click", () => {
