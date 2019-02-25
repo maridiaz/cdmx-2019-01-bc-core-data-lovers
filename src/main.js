@@ -10,6 +10,8 @@ const modalFun = document.getElementById('modal-fun');
 
 //Declarando las variables que enlazan los botones del HTML mediante el DOM
 const startButton = document.getElementById('start-button');
+const filterEnlisted = document.getElementById('filter-enlisted');
+const sortEnlisted = document.getElementById('sort-enlisted');
 const attackDesc = document.getElementById('attack-desc');
 const attackUpw = document.getElementById('attack-upw');
 const magic = document.getElementById('magic');
